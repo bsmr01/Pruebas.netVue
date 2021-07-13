@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  staging.api:
+    image: ${DOCKER_REGISTRY-}utilitaryapi
+    build:
+      context: .
+      dockerfile: src/Presentation/Utilitary.API/Dockerfile
+  production.api:
+    image: ${DOCKER_REGISTRY-}utilitaryapi
+    build:
+      context: .
+      dockerfile: src/Presentation/Utilitary.API/Dockerfile
