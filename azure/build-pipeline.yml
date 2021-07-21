@@ -1,0 +1,30 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build cui-service-utilitary.sln --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish $(buildConfiguration)'
+  inputs:
+    command: publish
+    projects: '**/*.API/*.csproj'
+    publishWebProjects: false
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+  
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'

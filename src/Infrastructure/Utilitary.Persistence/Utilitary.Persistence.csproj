@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Ibero.Services.Utilitary.Persistence</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\..\.targets" />
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Utilitary.Core\Utilitary.Core.csproj" />
+    <ProjectReference Include="..\..\Domain\Utilitary.Domain\Utilitary.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+
+</Project>

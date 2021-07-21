@@ -1,0 +1,115 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "API",
+    "contact": {
+      "name": "Infraestructura",
+      "email": "cristhian.lizcano@gmail.co"
+    }
+  },
+  "paths": {
+    "/v{version}/Operator/GetAllOperatorStudentsPortfolioStatus/{IdBanner}/{CodeOperatorIceberg}": {
+      "get": {
+        "tags": [ "Operator" ],
+        "operationId": "ListOperatorStudentsPortfolioStatus",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "CodeOperatorIceberg",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "IdBanner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "/v{version}/Person": {
+      "put": {
+        "tags": [ "Person" ],
+        "operationId": "UpdatePerson",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "command",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/UpdatePersonCommand" }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Response" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UpdatePersonCommand": {
+      "type": "object",
+      "properties": {
+        "idBanner": { "type": "string" },
+        "codHomeIcebergDocumentType": { "type": "string" },
+        "numDocument": { "type": "string" },
+        "namPerson": { "type": "string" },
+        "lastNamePerson": { "type": "string" },
+        "resAddress": { "type": "string" },
+        "codHomeIcebergResidenceDepartament": { "type": "string" },
+        "codHomeIcebergResidenceCity": { "type": "string" },
+        "codHomeIcebergResidenceCountry": { "type": "string" },
+        "nameResidenceNeighborhood": { "type": "string" },
+        "idUpdatedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "desContactInformationPhone": { "type": "string" },
+        "desContactInformationPhoneEmergency": { "type": "string" },
+        "desContactInformationMobile": { "type": "string" },
+        "desContactInformationEmail": { "type": "string" },
+        "codHomeIcebergTransferCenter": { "type": "string" },
+        "observation": { "type": "string" },
+        "sta_Active": { "type": "boolean" }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "message": { "type": "string" },
+        "status": { "type": "string" },
+        "title": { "type": "string" }
+      }
+    }
+  }
+}

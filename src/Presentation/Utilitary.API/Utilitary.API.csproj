@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AssemblyName>Ibero.Services.Utilitary.API</AssemblyName>
+    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>7b928f85-21ec-4ab5-975d-3012510f1a18</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+    <Company>gg</Company>
+    <Copyright>ll</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <Import Project="..\..\.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Utilitary.Infrastructure\Utilitary.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Utilitary.Persistence\Utilitary.Persistence.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+</Project>

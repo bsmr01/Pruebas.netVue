@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Ibero.Services.Utilitary.Infrastructure</AssemblyName>
+    <RootNamespace>Ibero.Services.Utilitary.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swaggerIceberg.json" CodeGenerator="NSwagCSharp" Namespace="IcebergAPIClient">
+      <SourceUri>https://localhost:44384/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Utilitary.Domain\Utilitary.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

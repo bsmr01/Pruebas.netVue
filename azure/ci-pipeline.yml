@@ -1,0 +1,35 @@
+trigger:
+- releases/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: $(Build.Repository.Name)
+  tagName: $(Build.BuildNumber)
+
+steps:
+- task: Docker@2
+  displayName: Build docker image
+  inputs:
+    command: build
+    buildContext: .
+    repository: $(imageName)
+    arguments: -t $(imageName):$(tagName)
+
+- task: Docker@2
+  displayName: Login docker image
+  inputs:
+    containerRegistry: 'SpiberoDockerHub'
+    command: 'login'
+
+- script: |
+    docker tag $(imageName):$(tagName) spibero2020/$(imageName):$(tagName)
+  displayName: 'Tag docker image'
+
+- script: |
+    docker push spibero2020/$(imageName):$(tagName)
+  displayName: 'Push docker image'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'

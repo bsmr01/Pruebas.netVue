@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Ibero.Services.Utilitary.Domain</AssemblyName>    
+  </PropertyGroup>
+
+  <Import Project="..\..\.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="20.1.0" />
+    <PackageReference Include="SpreadsheetLight.Core" Version="3.4.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Utilitary.Core\Utilitary.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\Mapping\" />
+    <Folder Include="Pelicula\Commands\" />
+    <Folder Include="OrdersEnrollment\Models\" />
+    <Folder Include="OrdersEnrollment\Queries\" />
+  </ItemGroup>
+
+</Project>

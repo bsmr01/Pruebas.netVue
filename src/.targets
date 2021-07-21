@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+
+    <Company>Corporación Universitaria Iberoamericana</Company>
+    <Copyright>Copyright 2020 (c) $(Company). All rights reserved.</Copyright>
+    <Product>Services.Utilitary</Product>
+  </PropertyGroup>
+</Project>
